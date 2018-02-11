@@ -23,6 +23,7 @@
 		elpy			;; emacs的python开发环境
 		irony			;; C/C++ minor mode
 		smart-tabs-mode
+        flycheck		;; 语法检查
 		) "Default packages")
 
 (defun cxy/packages-installed-p ()
@@ -115,3 +116,4 @@
 (setq semanticdb-default-save-directory "/work/semanticdb")
 
 (provide 'init-packages)
+

@@ -26,4 +26,7 @@
 ;; 设置默认工作目录(emacs启动后所在的目录)
 (setq command-line-default-directory "/work/share/")
 
+;; 高亮显示当前行
+;;(global-hl-line-mode 1)
+
 (provide 'init-better-defaults)
