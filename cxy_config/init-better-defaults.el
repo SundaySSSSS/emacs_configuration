@@ -23,4 +23,7 @@
 (setq c-default-style "linux")
 (setq c-basic-offset 4)
 
+;; 设置默认工作目录(emacs启动后所在的目录)
+(setq command-line-default-directory "/work/share/")
+
 (provide 'init-better-defaults)
