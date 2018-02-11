@@ -19,4 +19,7 @@
 (global-set-key (kbd "<f12>") 'semantic-ia-fast-jump)   ;跳转
 (global-set-key (kbd "C-<f12>") 'semantic-mrub-switch-tags)   ;跳转回去
 
+;; 搜索相关配置
+(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root) ;; Call helm-ag at project root. helm-ag seems directory as project root where there is .git or .hg or .svn.
+
 (provide 'init-keybindings)
