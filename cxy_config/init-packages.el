@@ -24,6 +24,8 @@
 		irony			;; C/C++ minor mode
 		smart-tabs-mode
         flycheck		;; 语法检查
+        markdown-mode
+        web-mode
 		) "Default packages")
 
 (defun cxy/packages-installed-p ()
@@ -114,6 +116,16 @@
 
 ;; 设置semantic cache临时文件的路径，避免到处都是临时文件
 (setq semanticdb-default-save-directory "/work/semanticdb")
+
+;; 设置markdown mode
+(require 'markdown-mode)
+
+;; 设置web mode
+(setq auto-mode-alist
+      (append
+       '(("\\.js\\'" . js2-mode))
+       '(("\\.html\\'" . web-mode))
+       auto-mode-alist))
 
 (provide 'init-packages)
 
