@@ -119,6 +119,10 @@
 
 ;; 设置markdown mode
 (require 'markdown-mode)
+(setq auto-mode-alist
+      (append
+       '(("\\.md\\'" . markdown-mode))
+       auto-mode-alist))
 
 ;; 设置web mode
 (setq auto-mode-alist
