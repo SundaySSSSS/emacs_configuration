@@ -26,6 +26,7 @@
         flycheck		;; 语法检查
         markdown-mode
         web-mode
+	ecb
 		) "Default packages")
 
 (defun cxy/packages-installed-p ()
@@ -106,7 +107,7 @@
 (provide 'semantic-load)
 
 ;; ECB config
-(add-to-list 'load-path "~/.emacs.d/ecb-2.40")
+;;(add-to-list 'load-path "~/.emacs.d/ecb-2.40")
 (require 'ecb)
 
 (setq stack-trace-on-error t)
