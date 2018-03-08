@@ -32,7 +32,7 @@
 ;;中文与外文字体设置, 保证中英文等宽等高目前只有使用文泉驿等宽正黑
 (set-default-font "文泉驿等宽正黑:pixelsize=18:foundry=unknown:weight=medium:slant=normal:width=normal:scalable=true")
 ;; 加大行间距, 否则使用文泉驿等宽字体体验不佳
-(setq-default line-spacing 8)
+(setq-default line-spacing 5)
 
 ;;给eshell上色, 借用了codenew的配置
 ;;将eshell的prompt设定成和bash一样 
@@ -62,5 +62,8 @@
 
 ;; Make eshell prompt more colorful
 (add-hook 'eshell-output-filter-functions 'colorfy-eshell-prompt)
+
+;; 当选中一部分时, 输入任意字符都会替换掉选中文本
+(delete-selection-mode 1)
 
 (provide 'init-better-defaults)

@@ -26,7 +26,8 @@
         flycheck		;; 语法检查
         markdown-mode
         web-mode
-	ecb
+        helm-ag
+        ecb
 		) "Default packages")
 
 (defun cxy/packages-installed-p ()
