@@ -23,21 +23,30 @@
 (setq c-default-style "linux")
 (setq c-basic-offset 4)
 
-;; 设置默认工作目录(emacs启动后所在的目录)
-(setq command-line-default-directory "/work/share/")
-
 ;; 高亮显示当前行
 ;;(global-hl-line-mode 1)
 
-;;中文与外文字体设置, 保证中英文等宽等高目前只有使用文泉驿等宽正黑
-(set-default-font "文泉驿等宽正黑:pixelsize=18:foundry=unknown:weight=medium:slant=normal:width=normal:scalable=true")
 ;; 设置垃圾回收，在Windows下，emacs25版本会频繁出发垃圾回收，所以需要设置
-(when (eq system-type 'windows-nt)
+(when (eq system-type 'windows-nt)	;; windows上的设置
   (setq gc-cons-threshold (* 512 1024 1024))
   (setq gc-cons-percentage 0.5)
   (run-with-idle-timer 5 t #'garbage-collect)
   ;; 显示垃圾回收信息，这个可以作为调试用
   ;; (setq garbage-collection-messages t)
+  ;;中文与外文字体设置, 保证中英文等宽等高目前只有使用文泉驿等宽正黑
+  (set-default-font "文泉驿等宽正黑:pixelsize=18:foundry=unknown:weight=medium:slant=normal:width=normal:scalable=true")
+  )
+
+(when (eq system-type 'darwin)	;; mac上的设置
+  (setq command-line-default-directory "~/")	;; mac上默认为home目录
+  (set-default-font "Menlo:pixelsize=18:foundry=unknown:weight=medium:slant=normal:width=normal:scalable=true")
+  )
+
+(when (eq system-type 'gnu/linux)	;; linux设置
+  ;;中文与外文字体设置, 保证中英文等宽等高目前只有使用文泉驿等宽正黑
+  (set-default-font "文泉驿等宽正黑:pixelsize=18:foundry=unknown:weight=medium:slant=normal:width=normal:scalable=true")
+  ;; 设置默认工作目录(emacs启动后所在的目录)
+  (setq command-line-default-directory "/work/share/")
 )
 
 ;; 加大行间距, 否则使用文泉驿等宽字体体验不佳

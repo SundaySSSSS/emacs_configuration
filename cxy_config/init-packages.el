@@ -117,7 +117,12 @@
 (setq ecb-tip-of-the-day nil)
 
 ;; 设置semantic cache临时文件的路径，避免到处都是临时文件
-(setq semanticdb-default-save-directory "/work/semanticdb")
+(when (eq system-type 'gnu/linux)
+  (setq semanticdb-default-save-directory "/work/semanticdb")
+  )
+(when (eq system-type 'darwin)
+  (setq semanticdb-default-save-directory "~/.emacs.d/semanticdb")
+  )
 
 ;; 设置markdown mode
 (require 'markdown-mode)
