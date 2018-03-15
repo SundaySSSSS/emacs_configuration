@@ -25,4 +25,8 @@
 ;; 将C-s绑定为保存buffer, 和其他编辑器保持一致
 (global-set-key (kbd "C-s") 'save-buffer)
 
+;; 交换跳转到行首和第一个字符前的按键绑定
+(global-set-key (kbd "C-a") 'back-to-indentation)
+(global-set-key (kbd "M-m") 'move-beginning-of-line)
+
 (provide 'init-keybindings)
