@@ -20,6 +20,9 @@
 (global-set-key (kbd "C-<f12>") 'semantic-mrub-switch-tags)   ;跳转回去
 
 ;; 搜索相关配置
-(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root) ;; Call helm-ag at project root. helm-ag seems directory as project root where there is .git or .hg or .svn.
+(global-set-key (kbd "C-c a g") 'helm-do-ag-project-root) ;; Call helm-ag at project root. helm-ag seems directory as project root where there is .git or .hg or .svn.
+
+;; 将C-s绑定为保存buffer, 和其他编辑器保持一致
+(global-set-key (kbd "C-s") 'save-buffer)
 
 (provide 'init-keybindings)
