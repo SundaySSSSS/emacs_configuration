@@ -29,4 +29,7 @@
 (global-set-key (kbd "C-a") 'back-to-indentation)
 (global-set-key (kbd "M-m") 'move-beginning-of-line)
 
+;; 设置C-z为撤销
+(global-set-key (kbd "C-z") 'undo)
+
 (provide 'init-keybindings)
