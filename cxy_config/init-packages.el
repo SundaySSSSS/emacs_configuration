@@ -28,6 +28,7 @@
         web-mode
         helm-ag
         ecb
+        exec-path-from-shell	;; 让macos下的eshell和系统shell保持一致
 		) "Default packages")
 
 (defun cxy/packages-installed-p ()
@@ -137,6 +138,12 @@
        '(("\\.js\\'" . js2-mode))
        '(("\\.html\\'" . web-mode))
        auto-mode-alist))
+
+;; 在macos下让emacs shell和系统shell保持一致
+;; 目前只有ansi-term下是有效的, eshell不行
+(when (eq system-type 'darwin)
+  (exec-path-from-shell-initialize)
+  )
 
 (provide 'init-packages)
 

@@ -40,6 +40,7 @@
 (when (eq system-type 'darwin)	;; mac上的设置
   (setq command-line-default-directory "~/")	;; mac上默认为home目录
   (set-default-font "Menlo:pixelsize=18:foundry=unknown:weight=medium:slant=normal:width=normal:scalable=true")
+  (setq python-shell-interpreter "/usr/bin/python")
   )
 
 (when (eq system-type 'gnu/linux)	;; linux设置
