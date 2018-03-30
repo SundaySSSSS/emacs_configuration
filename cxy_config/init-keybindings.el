@@ -32,4 +32,10 @@
 ;; 设置C-z为撤销
 (global-set-key (kbd "C-z") 'undo)
 
+;; 使用ag搜索当前标志符
+(global-set-key (kbd "C-c f") 'search-ag-with-current-identifier)
+
+;; 打开ansi-term终端
+(global-set-key (kbd "C-c t") 'ansi-term)
+
 (provide 'init-keybindings)

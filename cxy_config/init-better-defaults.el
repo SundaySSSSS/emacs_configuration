@@ -85,4 +85,51 @@
 ;; 当选中一部分时, 输入任意字符都会替换掉选中文本
 (delete-selection-mode 1)
 
+;; 工具函数, 判定输入字符是否为特定的分隔符
+(defun check-char-is-special-divider(char)
+  (or (equal char "_") (equal char "-")) ;; 如果为-或_, 返回t, 否则返回nil
+  )
+
+;; 工具函数, 返回当前region前/后一个字符, 如果没有, 返回nil
+(defun get-char-front-region()
+  (if (= (region-beginning) (point-min))
+    (progn
+      (nil)
+      )
+    (progn
+      (buffer-substring (- (region-beginning) 1) (region-beginning))
+      )
+    )
+  )
+(defun get-char-behind-region()
+  (if (= (region-end) (point-max))
+    (progn
+      (nil)
+      )
+    (progn
+      (buffer-substring (region-end) (+ 1 (region-end)))
+      )
+    )
+  )
+
+;; 使用ag搜索选中的标志符
+(defun search-ag-with-current-identifier()
+    "search the current identifier by ag"
+    (interactive)
+    ;;(message "buffer contains words."))
+    ;;(message "begin at %s\nend at %s" (region-beginning) (region-end))
+    (er/expand-region 1)
+    (setq pre_char (get-char-front-region))
+    (setq suf_char (get-char-behind-region))
+    (if (or (check-char-is-special-divider pre_char) (check-char-is-special-divider suf_char))
+      (progn
+        (er/expand-region 1) ;; 如果检测到前一次选中的两侧有-或_, 再执行一次, 即可将整个标志符选中
+        )
+      (progn
+        (nil)
+        )
+      )
+    (helm-do-ag-project-root) ;;搜索标志符
+    )
+
 (provide 'init-better-defaults)
