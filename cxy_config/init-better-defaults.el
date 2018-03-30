@@ -125,9 +125,6 @@
       (progn
         (er/expand-region 1) ;; 如果检测到前一次选中的两侧有-或_, 再执行一次, 即可将整个标志符选中
         )
-      (progn
-        (nil)
-        )
       )
     (helm-do-ag-project-root) ;;搜索标志符
     )
