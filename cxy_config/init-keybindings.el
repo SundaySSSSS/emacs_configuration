@@ -38,4 +38,7 @@
 ;; 打开ansi-term终端
 (global-set-key (kbd "C-c t") 'ansi-term)
 
+;; 进入occur进行单文件搜索
+(global-set-key (kbd "C-c o") 'occur-dwim)
+
 (provide 'init-keybindings)

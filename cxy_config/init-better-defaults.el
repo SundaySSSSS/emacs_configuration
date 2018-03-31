@@ -16,7 +16,10 @@
 
 ;; 关闭自动保存文件
 (setq auto-save-default nil)
-  
+
+;; 关闭错误提示音
+(setq ring-bell-function 'ignore)
+
 ;;以下设置缩进  
 (setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
@@ -128,5 +131,19 @@
       )
     (helm-do-ag-project-root) ;;搜索标志符
     )
+
+;; occur配置
+(defun occur-dwim ()
+  "let `occur' do what I mean."
+  (interactive)
+  (push (if (region-active-p)
+	    (buffer-substring-no-properties
+	     (region-beginning)
+	     (region-end))
+	  (let ((sym (thing-at-point 'symbol)))
+	    (when (stringp sym)
+	      (regexp-quote sym))))
+	regexp-history)
+  (call-interactively 'occur))
 
 (provide 'init-better-defaults)
