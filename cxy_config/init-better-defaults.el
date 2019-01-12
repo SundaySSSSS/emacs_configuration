@@ -37,7 +37,7 @@
   ;; 显示垃圾回收信息，这个可以作为调试用
   ;; (setq garbage-collection-messages t)
   ;;中文与外文字体设置, 保证中英文等宽等高目前只有使用文泉驿等宽正黑
-  (set-default-font "文泉驿等宽正黑:pixelsize=18:foundry=unknown:weight=medium:slant=normal:width=normal:scalable=true")
+  ;;(set-default-font "文泉驿等宽正黑:pixelsize=18:foundry=unknown:weight=medium:slant=normal:width=normal:scalable=true")
   )
 
 (when (eq system-type 'darwin)	;; mac上的设置
