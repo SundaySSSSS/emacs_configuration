@@ -1,3 +1,6 @@
+;; 设置emacs字体
+(set-default-font "-outline-Consolas-normal-normal-normal-mono-15-*-*-*-c-*-iso8859-1")
+
 ;; 禁止emacs备份文件
 (setq make-backup-files nil)
 (setq auto-save-default nil)

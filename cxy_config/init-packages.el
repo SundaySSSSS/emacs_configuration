@@ -14,22 +14,22 @@
 ;; 做一个想要的package的列表, 启动emacs时,如果没有此package, 则会自动下载
 ;; Add Packages
 (defvar cxy/packages '(
-		company	;; 号称能够补全任何东西的插件
-		monokai-theme    ;; 一个黑色的主题
-		hungry-delete	;; 能够一次性删除多个空格的插件
-		expand-region	;; 自动选择光标所在区域的插件
-		pyim			;; emacs内置拼音输入法
-		pyim-basedict	;; pyim的拼音字典
-		elpy			;; emacs的python开发环境
-		irony			;; C/C++ minor mode
-		smart-tabs-mode
-        flycheck		;; 语法检查
-        markdown-mode
-        web-mode
-        helm-ag
-        ecb
-        exec-path-from-shell	;; 让macos下的eshell和系统shell保持一致
-		) "Default packages")
+    company	;; 号称能够补全任何东西的插件
+    monokai-theme    ;; 一个黑色的主题
+    hungry-delete	;; 能够一次性删除多个空格的插件
+    expand-region	;; 自动选择光标所在区域的插件
+    pyim			;; emacs内置拼音输入法
+    pyim-basedict	;; pyim的拼音字典
+    elpy			;; emacs的python开发环境
+    irony			;; C/C++ minor mode
+    smart-tabs-mode
+    flycheck		;; 语法检查
+    markdown-mode
+    web-mode
+    helm-ag
+    exec-path-from-shell	;; 让macos下的eshell和系统shell保持一致
+    ggtags
+) "Default packages")
 
 (defun cxy/packages-installed-p ()
      (loop for pkg in cxy/packages
@@ -105,7 +105,7 @@
                                      global-semantic-idle-scheduler-mode global-semanticdb-minor-mode)))
  '(semantic-idle-scheduler-idle-time 3))
 
-(semantic-mode)
+;;(semantic-mode)
 
 (require 'semantic/analyze)
 (provide 'semantic-analyze)
@@ -117,7 +117,7 @@
 
 ;; ECB config
 ;;(add-to-list 'load-path "~/.emacs.d/ecb-2.40")
-(require 'ecb)
+;;(require 'ecb)
 
 (setq stack-trace-on-error t)
 
@@ -125,12 +125,12 @@
 (setq ecb-tip-of-the-day nil)
 
 ;; 设置semantic cache临时文件的路径，避免到处都是临时文件
-(when (eq system-type 'gnu/linux)
-  (setq semanticdb-default-save-directory "/work/semanticdb")
-  )
-(when (eq system-type 'darwin)
-  (setq semanticdb-default-save-directory "~/.emacs.d/semanticdb")
-  )
+;;(when (eq system-type 'gnu/linux)
+  ;;(setq semanticdb-default-save-directory "/work/semanticdb")
+  ;;)
+;;(when (eq system-type 'darwin)
+  ;;(setq semanticdb-default-save-directory "~/.emacs.d/semanticdb")
+  ;;)
 
 ;; 设置markdown mode
 (require 'markdown-mode)
@@ -151,6 +151,14 @@
 (when (eq system-type 'darwin)
   (exec-path-from-shell-initialize)
   )
+
+;; 设置global
+(setenv "PATH" (concat "C:/Users/root/emacs/global/bin;" (getenv "PATH")))
+(add-to-list 'exec-path "C:/Users/root/emacs/global/bin")
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+              (ggtags-mode 1))))
 
 (provide 'init-packages)
 
