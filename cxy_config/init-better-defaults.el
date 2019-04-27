@@ -1,5 +1,8 @@
 ;; 设置emacs字体
-(set-default-font "-outline-Consolas-normal-normal-normal-mono-15-*-*-*-c-*-iso8859-1")
+(when (eq system-type 'windows-nt)
+  ;; 在Windows下设置为Consolas字体
+  (set-default-font "-outline-Consolas-normal-normal-normal-mono-15-*-*-*-c-*-iso8859-1")
+)
 
 ;; 禁止emacs备份文件
 (setq make-backup-files nil)
